@@ -1,0 +1,54 @@
+/*公共*/
+
+.bottomBtns{
+	text-align:center;
+	margin-bottom: 20px;
+}
+
+
+/*表单页面*/
+.pageBlock .requiredInput {
+position: relative;
+height: 100%;
+}
+
+.pageBlock .requiredInput .requiredBlock {
+background-color: #c00;
+position: absolute;
+left: -4px;
+width: 3px;
+top: 5px;
+bottom: 10px;
+}
+
+.pbSubExtra{
+	float:right;
+}
+
+.pbSubheader{
+	background-color: #E2E7EF;
+}
+
+.table input{
+	vertical-align: top;
+}
+
+.detailList {
+width: 100%;
+}
+
+.dataCol {
+width: 32%;
+padding-top: 3px;
+padding-bottom: 3px;
+}
+
+.labelCol {
+width: 18%;
+text-align: right;
+font-size: 91%;
+font-weight: bold;
+padding: 3px 10px 3px 2px;
+}
+
+.requiredExample{border-left:3px solid #c00;font-size:80%;vertical-align:1px;width:100%}
