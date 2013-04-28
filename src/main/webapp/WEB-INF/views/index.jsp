@@ -1,65 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            xx管理系统
-        </title>
-        <spring:url value="/webjars/bootstrap/2.3.0/css/bootstrap.min.css" var="bootstrapCss"/>
-        <spring:url value="/resources/css/style.css" var="appCss"/>
-        
-    
-        <link rel="stylesheet" href="/validationdemo/webjars/bootstrap/2.3.0/css/bootstrap.min.css" type="text/css">
-        <link rel="stylesheet" href="${appCss }" type="text/css">
-    </head>
+	<jsp:include page="fragments/headTag.jsp"></jsp:include>
     <body>
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand">管理系统</a>
-                    <p class="navbar-text pull-right">
-                        <a href="#">退出</a>
-                    </p>
-                </div>
-            </div>
-        </div>
+    	<jsp:include page="fragments/navbar.jsp"/>
         <div class="container-fluid">
             <div class="row-fluid">
-                <div class="span2">
-                    <ul class="nav nav-list">
-                        <li class="nav-header">库存系统
-                        </li>
-                        <li>
-                            <a href="#">入库申请单</a>
-                        </li>
-                        <li>
-                            <a href="#">入库申请单列表</a>
-                        </li>
-                        <li>
-                            <a href="#">入库单</a>
-                        </li>
-                        <li>
-                            <a href="#">入库单列表</a>
-                        </li>
-                        <li class="nav-header">管理用户
-                        </li>
-                        <li class="active">
-                            <a href="#">用户</a>
-                        </li>
-                        <li>
-                            <a href="#">角色</a>
-                        </li>
-                        <li>
-                            <a href="#">权限</a>
-                        </li>
-                        <li>
-                            <a href="#">登录历史</a>
-                        </li>
-                    </ul>
-                </div>
+            	<jsp:include page="fragments/menu.jsp"></jsp:include>
                 <div class="span10">
                     <div class="pageTitle">
                         <h3>
@@ -145,13 +96,6 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <hr>
-            <footer>
-                <p>
-                    Company 2013
-                </p>
-            </footer>
-        </div>
+        <jsp:include page="fragments/footer.jsp"/>
     </body>
 </html>
