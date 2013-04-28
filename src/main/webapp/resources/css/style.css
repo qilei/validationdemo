@@ -52,3 +52,10 @@ padding: 3px 10px 3px 2px;
 }
 
 .requiredExample{border-left:3px solid #c00;font-size:80%;vertical-align:1px;width:100%}
+
+.errorMsg{
+	color: red;
+}
+input.error {
+border: 2px solid #c00;
+}

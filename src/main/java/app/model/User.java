@@ -25,6 +25,9 @@ public class User {
 	@Zip
 	private String zip;
 
+	public User() {
+	}
+
 	public User(String firstName, String lastName) {
 		super();
 		this.firstName = firstName;
