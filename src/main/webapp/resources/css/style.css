@@ -59,3 +59,7 @@ padding: 3px 10px 3px 2px;
 input.error {
 border: 2px solid #c00;
 }
+
+.red{
+	color:red;
+}

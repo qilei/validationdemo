@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
+<c:url var="postUrl2" value="/user/add2"/>
 <!DOCTYPE html>
 <html>
 <jsp:include page="fragments/headTag.jsp"></jsp:include>
@@ -16,6 +16,8 @@
 					<h3>用户管理：新建用户</h3>
 				</div>
 				<form:form id="editForm" name="editForm" method="post" modelAttribute="user" cssClass="cleanform">
+					<input type="radio" name="validType" value="default" checked="checked"/>简单校验
+					<input type="radio" name="validType" value="complete"/>完整校验
 					<div class="pageBlock">
 						<div class="pbHeader bottomBtns">
 							<button id="btnSave" class="btn">保存</button>
@@ -90,9 +92,14 @@
 				
 				$form.submit(function() {
 					if($form.valid()){
+						var url=$(this).attr("action");
+						var validType=$("[name='validType']:checked").val();
+						if(validType==="complete"){
+							url='${postUrl2}';
+						}
 						$.ajax({
 							type:"post",
-							url:$(this).attr("action"),
+							url:url,
 							data:$(this).serialize(),
 							success:function( data, status, jqXHR ) {
 								//$("#formsContent").replaceWith(data);

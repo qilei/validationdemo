@@ -7,6 +7,10 @@ import app.common.validation.Zip;
 
 public class User {
 	
+	public interface Complete {
+
+	}
+
 	@NotEmpty
 	private String firstName;
 	
@@ -22,7 +26,7 @@ public class User {
 
 	private String phone;
 
-	@Zip
+	@Zip(groups = { Complete.class })
 	private String zip;
 
 	public User() {
