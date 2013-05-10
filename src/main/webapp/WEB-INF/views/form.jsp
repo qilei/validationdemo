@@ -3,11 +3,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <c:url var="postUrl2" value="/user/add2"/>
+<c:url var="firstNameValidUrl" value="/user/valid"></c:url>
 <!DOCTYPE html>
 <html>
 <jsp:include page="fragments/headTag.jsp"></jsp:include>
 <body>
 	<jsp:include page="fragments/navbar.jsp" />
+	
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<jsp:include page="fragments/menu.jsp"></jsp:include>
@@ -62,6 +64,22 @@
 													<form:input path="mobile" cssClass="mobile" /> <div class="errorMsg"><form:errors path="mobile" cssClass="error" /></div>
 											</td>
 										</tr>
+										<tr>
+											<td class="labelCol">
+												<form:label path="zip">城市</form:label></td>
+											<td class="dataCol col02">
+												<select id="combobox">
+													<option value="">Select one...</option>
+													<option value="1">北京</option>
+													<option value="2">上海</option>
+													<option value="3">深圳</option>
+												</select>
+											</td>
+											<td class="labelCol">
+											</td>
+											<td class="dataCol">
+											</td>
+										</tr>
 									</tbody>
 								</table>
 							</div>
@@ -81,14 +99,33 @@
 	
 	<script type="text/javascript">
 			$(document).ready(function() {
+				$( "#combobox" ).combobox();
 				
 				var $form=$("#editForm");
 				
 				$form.validate({
-					   errorPlacement: function(error, element) {
-						   element.parent("td").find('.errorMsg').html(error);
-					   }
-					});
+					rules:{
+						firstName:{
+							remote:{
+								url:"${firstNameValidUrl}",
+								type:"post",
+								data:{
+									"firstName": function() {
+						            	return $("#firstName").val();
+						          	}
+								}
+							}
+						}
+					},
+					messages:{
+						firstName:{
+							remote:"请输入百家姓"
+						}
+					},
+				   errorPlacement: function(error, element) {
+					   element.parent("td").find('.errorMsg').html(error);
+				   }
+				});
 				
 				$form.submit(function() {
 					if($form.valid()){

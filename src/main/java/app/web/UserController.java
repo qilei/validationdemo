@@ -66,14 +66,25 @@ public class UserController {
 		return res;
 	}
 
+	@RequestMapping(value = "/user/valid")
+	public @ResponseBody
+	Boolean validFirstName(String firstName) {
+		String[] allowedFirstNames = { "张", "王", "李", "赵" };
+		if (firstName.equals(allowedFirstNames[0]) || firstName.equals(allowedFirstNames[1])
+				|| firstName.equals(allowedFirstNames[2]) || firstName.equals(allowedFirstNames[3])) {
+			return true;
+		}
+		return false;
+	}
+
 	private void handleErrors(BindingResult bindingResult, ValidationResponse res, Locale locale) {
 		res.setStatus("FAIL");
 		List<FieldError> allErrors = bindingResult.getFieldErrors();
-		List<ErrorMessage> errorMesages = new ArrayList<ErrorMessage>();
+		List<ErrorMessage> errorMessages = new ArrayList<ErrorMessage>();
 		for (FieldError objectError : allErrors) {
 			String msg = messageSource.getMessage(objectError, locale);
-			errorMesages.add(new ErrorMessage(objectError.getField(), msg));
+			errorMessages.add(new ErrorMessage(objectError.getField(), msg));
 		}
-		res.setErrorMessageList(errorMesages);
+		res.setErrorMessageList(errorMessages);
 	}
 }
