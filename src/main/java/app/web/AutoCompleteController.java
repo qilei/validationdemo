@@ -1,13 +1,13 @@
 package app.web;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class HomeController {
+@RequestMapping("/autoComplete")
+public class AutoCompleteController {
 	@RequestMapping("/")
-	public String index(Model model) {
-		return "index";
+	public String index() {
+		return "autoComplete/index";
 	}
 }

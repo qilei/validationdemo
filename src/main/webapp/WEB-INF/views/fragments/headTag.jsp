@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <head>
@@ -20,6 +22,7 @@
     <script src="${jsBasepath }/messages_zh.js"></script>
     <script src="${jsBasepath }/validation-plugin.js"></script>
     <script src="${jsBasepath }/autocomplete-plugin.js"></script>
+    <script src="${jsBasepath }/winExtend.js"></script>
     <style>
 	.ui-combobox {
 		position: relative;

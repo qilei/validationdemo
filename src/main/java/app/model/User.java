@@ -29,6 +29,8 @@ public class User {
 	@Zip(groups = { Complete.class })
 	private String zip;
 
+	private String address;
+
 	public User() {
 	}
 
@@ -92,6 +94,14 @@ public class User {
 
 	public void setZip(String zip) {
 		this.zip = zip;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 	

@@ -28,7 +28,7 @@ public class UserController {
 	@Autowired
 	private MessageSource messageSource;
 
-	@RequestMapping(value = "/user/add", method = RequestMethod.GET)
+	@RequestMapping(value = { "/user/add" }, method = RequestMethod.GET)
 	public String initNewForm(Model model) {
 		model.addAttribute("user", new User());
 		return "form";
@@ -69,12 +69,18 @@ public class UserController {
 	@RequestMapping(value = "/user/valid")
 	public @ResponseBody
 	Boolean validFirstName(String firstName) {
-		String[] allowedFirstNames = { "张", "王", "李", "赵" };
-		if (firstName.equals(allowedFirstNames[0]) || firstName.equals(allowedFirstNames[1])
-				|| firstName.equals(allowedFirstNames[2]) || firstName.equals(allowedFirstNames[3])) {
-			return true;
+		if(firstName.length()>2){
+			return false;
 		}
-		return false;
+		return true;
+		// String[] allowedFirstNames = { "张", "王", "李", "赵" };
+		// if (firstName.equals(allowedFirstNames[0]) ||
+		// firstName.equals(allowedFirstNames[1])
+		// || firstName.equals(allowedFirstNames[2]) ||
+		// firstName.equals(allowedFirstNames[3])) {
+		// return true;
+		// }
+		// return false;
 	}
 
 	private void handleErrors(BindingResult bindingResult, ValidationResponse res, Locale locale) {
